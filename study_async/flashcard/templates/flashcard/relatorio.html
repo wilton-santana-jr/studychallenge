@@ -1,0 +1,217 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block 'cabecalho' %}
+
+    <link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
+    <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
+    <link href="{% static 'flashcard/css/iniciar_desafio.css' %}" rel="stylesheet">
+    <link href="{% static 'flashcard/css/desafio.css' %}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+{% endblock 'cabecalho' %}
+
+
+{% block 'conteudo' %}
+{% include "partials/header.html" %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container">
+  
+    <div class="col-md">
+         
+        <br><br>
+        <h3><b>{{desafio}}</b></h3>
+            {% for categoria in desafio.categoria.all %}
+                <span class="badge-categoria">{{categoria}}</span>
+            {% endfor %}
+            <span class="badge-categoria {{desafio.css_dificuldade}}">{{desafio.descricao_dificuldade}}</span>
+            <hr>
+    </div>    
+
+
+    <div class="row">
+        <div class="col-md">
+            
+            <h3><b>Totais de Acertos e Erros</b></h3>
+            <canvas width="50%" height="50%"  id="grafico1"></canvas>
+        </div>
+        
+        <div class="col-md">
+         
+           
+            <h3><b>Acertos por Área do Conhecimento</b></h3>
+            <div style="background-color: white;">
+                
+                <canvas id="grafico2"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+  
+        <div class="col-md">
+            <br>
+            <hr>
+       
+            <h3><b>Melhores matérias</b></h3>
+            <div>
+                
+                {% for categoria in melhores_categorias  %}
+                                
+                <div class="info-box">
+                    <span class="badge-categoria-grafico"><b>{{categoria.categoria.nome}}</b></span><br>
+                    <span>Acertos: {{ categoria.acertos }}</span><br>
+                    <span>Erros: {{ categoria.erros }}</span>
+                </div>       
+                     
+                {% endfor %}
+           
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+  
+        <div class="col-md">
+            <h3><b>Piores matérias</b></h3>
+            <div >
+                {% for categoria in piores_categorias   %}
+                                
+                <div class="info-box">
+                    <span class="badge-categoria-grafico"><b>{{categoria.categoria.nome}}</b></span><br>
+                    <span>Acertos: {{ categoria.acertos }}</span><br>
+                    <span>Erros: {{ categoria.erros }}</span>
+                </div>       
+                     
+                {% endfor %}                                                          
+                
+                     
+                   
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+  
+        <div class="col-md">
+            <br>
+            <hr>
+
+            <br>
+            <h3><b>Total de Acertos por Matéria</b></h3>
+            <div style="background-color: white;">
+              
+                <canvas   id="grafico3"></canvas>
+                
+            </div>
+            <br><br><br><br>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+</div>
+
+<script>
+    const ctx = document.getElementById('grafico1');
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Acertos', 'Erros'],
+            datasets: [{
+                label: 'Questões',
+                data: {{dados}},
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Totais de Acertos e Erros'
+            },
+        }
+    });
+
+</script>
+
+<script>
+    const ctx2 = document.getElementById('grafico2');
+    new Chart(ctx2, {
+        type: 'radar',
+        data: {
+            labels: {{categorias|safe}},
+            datasets: [{
+                label: 'Questões Acertadas',
+                data: {{dados2}},
+                borderWidth: 1,
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }]
+        },
+        options: {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1 // Defina o intervalo de acordo com o número de questões
+                }
+            },
+            title: {
+                display: true,
+                text: 'Acertos por Área do Conhecimento'
+            }
+        }
+    });
+</script>
+
+<script>
+    const ctx3 = document.getElementById('grafico3');
+    new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: {{categorias|safe}},
+            datasets: [{
+                label: 'Questões Acertadas',
+                data: {{dados2}},
+                borderWidth: 1,
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Acertos por Área do Conhecimento'
+            },
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1 // Defina o intervalo de acordo com o número de questões
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock 'conteudo' %}

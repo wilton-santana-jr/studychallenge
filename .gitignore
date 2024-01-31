@@ -1,0 +1,9 @@
+__pycache__
+migrations
+__pycache__/
+*/__pycache__/
+migrations/
+venv/
+db.sqlite3
+study_async/docs/
+study_async/media/
