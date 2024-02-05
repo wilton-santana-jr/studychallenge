@@ -1,0 +1,170 @@
+
+/* asdasdasdasdsad  */
+
+* Adicione essas classes para alinhar corretamente as colunas */
+.desafio-dificuldade-facil,
+.desafio-dificuldade-medio,
+.desafio-dificuldade-dificil,
+.desafio-aberto,
+.desafio-finalizado {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 15px 0;
+    text-align: center;
+    line-height: 25px;
+    width: 100px;
+}
+
+
+/* Estilos para a tabela */
+.box-listar {
+    background-color: #0b1526;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.linha {
+    height: 40px;
+    background-color: var(--dark-color);
+    padding: 20px;
+    border: #0b1526; 
+}
+
+td, th {
+    padding: 20px;
+    border: #0b1526 15px solid;
+    
+}
+
+tr {
+    background-color: var(--main-color);
+    font-weight: bold;
+}
+
+
+.badge-categoria{
+    padding: 5px;
+    background-color: #122342;    
+}
+
+/* Adicione outras classes específicas para a cor do fundo */
+.desafio-dificuldade-facil {
+    background-color: #1DAB1A; /* Verde */
+    border-radius: 45px; /* Borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 15px 0; /* Margem superior e inferior */
+    text-align: center; /* Alinhamento horizontal */
+    line-height: 10px; /* Alinhamento vertical */
+    width: 150px;
+    font-weight: bold;
+}
+
+.desafio-dificuldade-medio {
+    background-color: #ffee00c7; /* Amarelo */
+    border-radius: 45px; /* Borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 15px 0; /* Margem superior e inferior */
+    text-align: center; /* Alinhamento horizontal */
+    line-height: 10px; /* Alinhamento vertical */
+    width: 150px;
+    font-weight: bold;
+}
+
+.desafio-dificuldade-dificil {
+    background-color: #ff0000; /* Vermelho */
+    border-radius: 45px; /* Borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 15px 0; /* Margem superior e inferior */
+    text-align: center; /* Alinhamento horizontal */
+    line-height: 10px; /* Alinhamento vertical */
+    width: 150px;
+    font-weight: bold;
+}
+
+.desafio-aberto {
+    background-color: #1DAB1A; /* Verde */
+    border-radius: 45px; /* Borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 15px 0; /* Margem superior e inferior */
+    text-align: center; /* Alinhamento horizontal */
+    line-height: 10px; /* Alinhamento vertical */
+    width: 150px;
+    font-weight: bold;
+}
+
+.desafio-finalizado {
+    background-color: #ff0000; /* Vermelho */
+    border-radius: 45px; /* Borda arredondada */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 15px 0; /* Margem superior e inferior */
+    text-align: center; /* Alinhamento horizontal */
+    line-height: 10px; /* Alinhamento vertical */
+    width: 150px;
+    font-weight: bold;
+}
+
+/* */
+.btn-desafio{
+    width: 100% !important;
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
+
+
+.box-new-flashcard{
+    margin: 0;
+}
+
+.icone-vermelho{
+    color:red;
+    font-size: 30px;
+}
+
+.icone-verde{
+    color:green;
+    font-size: 30px;
+}
+
+.op2{
+    opacity: .3;
+}
+
+.fonte-p{
+    font-size: 25px;
+}
+
+.box-listar{
+    
+    background-color: #0b1526;
+    padding: 20px;
+}
+
+
+.badge-categoria-grafico{
+    padding: 5px;
+    background-color: #0b1526;
+
+}
+
+.info-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+    display: inline-block; /* Adicionado para alinhar lado a lado */
+    vertical-align: top; /* Ajuste opcional para alinhar ao topo */
+    background-color: #122342;    
+}

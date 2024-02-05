@@ -9,45 +9,45 @@ Este projeto consiste em um aplicativo web para alunos cadastrarem questões e r
 - Visualizar meu rendimento acadêmico junto aos testes respondidos e visualizar graficamente quais matérias tenho mais dificuldade e quais tenho melhor desempenho dessa forma o aluno pode focar seus estudos em conteúdos que erra mais;
 - Emitir relatórios gráficos estatisticos com informações sobre o desempenho acadêmico do aluno junto aos testes realizados;
 
-# -Home
+# -Login
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/d93b3767-a56d-402f-bb96-28a8b31cab64)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/53e415ba-94f3-4140-bb2b-070bbb60e780)
 
+# -Cadastro de Usuário
 
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/b2c8ea4a-5c4f-41a2-9c88-28e8ea27c96f)
 
-# -Gerenciamento de Contas Bancárias e Categorias de Gastos e Receitas Essenciais
+# -Gerenciamento de FlashCards Perguntas para estudos
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/2aecf1c9-2839-48f3-aa32-4031995276bb)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/09ac1b44-deb0-4768-9e57-299198e18e6c)
 
-# -Gerenciamento de receitas e despesas e geração de extratos bancários de receitas e despesas e exportação via pdf
+# -Criação de Desafios para o aluno praticar e ver como está seu conhecimento
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/6350fad3-9f55-4b34-9ece-b9260282a02a)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/00a429cb-ec43-4a09-9180-eb74fe6a25ca)
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/c0ee6b64-741e-4bcf-b286-6222388f976b)
+# -Gerenciamento dos desafios criados: aqui o aluno poderá acompanhar o andamento dos desafios e filtrar e responder os mesmos.
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/2457aa12-f1a0-4f41-82c5-4c57e37a99a6)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/36a2d1ad-049e-4e55-9e74-ff08762c9694)
 
-# -Gerenciamento do planejamento financeiro com gastos mensais
+# -Tela onde o Usuário consegue responder um determinado desafio indicando as questões que acertou e as que errou em um dado desafio.Além disso o usuário poderá acessar a tela de relatório detalhado do desafio para analisar seu rendimento.
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/9652616a-ca75-4bc8-aaac-a16ba930c1a5)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/ce53d82e-295f-4955-b289-6c2ae925de5e)
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/ae302ac3-e0b3-4af9-bbce-a0cace7f9fb9)
+# -Tela de geração de relatórios gráficos mostrando o desempenho do aluno quais suas melhores matérias e quais suas piores matérias e onde ele precisa melhorar.
 
-# -Gerenciamento de Contas, Boletos e Faturas a Pagar do mês corrente
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/9f147b12-4b3e-4d7c-bf4f-5a3a2155e886)
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/e0bc14f9-836b-4f9f-a4d9-90b7a32b50d9)
+# -Tela para Gerenciamento de Apostilas onde o usuário poderá cadastrar materias de estudo e também pesquisar materiais de estudos em geral de outros usuários para estudo e avaliação.
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/c94d3ad5-34c1-4122-9f8c-e80f1a0d0349)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/0736e4a4-6fd8-4be8-a19a-1d29ad23b89b)
 
-# -Emissão de relatórios gráficos mensais de receitas e despesas no mês corrente agrupados por categoria
+# -Tela para download do material de estudo acessado onde também o usuário poderá avaliar o material didático acessado dando uma nota ruim, boa, ótima ou excelente dependendo do seu gosto com relação ao conteúdo do material acessado.
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/ce4fff1d-5ea0-4a77-b6ad-d80495c8d832)
+![image](https://github.com/wilton-santana-jr/studychallenge/assets/12551792/804302b7-b084-4877-9855-0584f3b3e76d)
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/00e4d3c2-4442-46fc-8a9a-0a2298b2bb88)
+# - Protótipo do Figma do Projeto Web
 
-![image](https://github.com/wilton-santana-jr/financa_pessoal/assets/12551792/b8bb140b-8b54-4baa-8bba-eb6484263a9e)
-
-
+https://www.figma.com/file/SAOG2OXjqWjawFeEpjUtNF/Untitled-(Copy)?type=design&node-id=0-1&mode=design&t=roppZMocBb5DeYZk-0
 
 # Para instalação
 
@@ -110,7 +110,7 @@ Antes de iniciar instale no seu sistema:
     ```bash
     python manage.py migrate
     ```
-    
+
     ```bash
     python manage.py makemigrations flashcard
     ```
@@ -129,6 +129,7 @@ Antes de iniciar instale no seu sistema:
     python manage.py createsuperuser
     ```
 
+
 8. Coletando arquivos estáticos:
 
     ```bash
@@ -143,6 +144,9 @@ Para executar o aplicativo web, execute o comando abaixo:
 python manage.py runserver
 ```
 
-Agora você pode acessar o website através do endereço: `localhost:8000/usuarios/login/` para testar e usar o aplicativo.
+Antes de tudo você deve acessar o website através do endereço: `localhost:8000/admin/login/` com o superusuário e cadastrar as categorias máterias de ensino que o seu app irá utilizar.
+
+Depois disso acima você agora pode acessar o website através do endereço: `localhost:8000/usuarios/login/` para testar e usar o aplicativo.
+
 
 Todos são livres para colaborar com este projeto!!!
