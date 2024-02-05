@@ -7,7 +7,7 @@
     <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
     <link href="{% static 'flashcard/css/iniciar_desafio.css' %}" rel="stylesheet">
     <link href="{% static 'flashcard/css/desafio.css' %}" rel="stylesheet">
-    <link href="{% static 'apostilas/css/adicionar_apostilas.css' %}" rel="stylesheet">
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 {% endblock 'cabecalho' %}
@@ -15,7 +15,8 @@
 
 {% block 'conteudo' %}
     {% include "partials/header.html" %}
-    <div class="container">
+
+    <div id="content-container" class="container animate__animated animate__fadeIn" style="display: none;" >
         <br><br>
         <div class="row">
             <div class="col-md">
@@ -30,7 +31,10 @@
                 {% endif %}
                 <center><h2 class="fonte-secundaria" >Apostila:{{apostila}}</h2></center>
                 <br>  
-                <a class="btn-desafio" target="_blank" href="{{apostila.arquivo.url}}"><div style="width: 100%;" id="pdf-container"></div></a>
+
+             
+                    <a class="btn-desafio" target="_blank" href="{{apostila.arquivo.url}}"><div style="width: 100%;" id="pdf-container"></div></a>
+      
 
             </div>
             <div class="col-md">
@@ -79,6 +83,14 @@
         </div>
     </div>
 
+    <!-- Adiciona um Spinner enquanto a página está carregando -->
+    <div id="spinner-container"  class="d-flex justify-content-center align-items-center vh-100" style="display: block;">
+        <div id="spinner-container2"  class="spinner-border text-primary" role="status" style="display: block;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 <script>
 
@@ -98,6 +110,18 @@
             });
         });
     });
+    
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Quando a página estiver totalmente carregada, esconde o Spinner e mostra o conteúdo
+        document.getElementById('spinner-container').style.display='none';
+        document.getElementById('spinner-container2').style.display='none';
+        document.getElementById('content-container').style.display='block';
+    });
+
+
+
+
 </script>
 
 {% endblock 'conteudo' %}
