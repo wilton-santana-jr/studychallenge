@@ -2,13 +2,15 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.http import Http404
 from django.shortcuts import redirect, render
+from django.urls import reverse
 
 from .models import Categoria, Desafio, Flashcard, FlashcardDesafio
 
 
 def novo_flashcard(request):
     if not request.user.is_authenticated:
-        return redirect('usuarios/login')
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
 
     if request.method == 'GET':
         categorias = Categoria.objects.all()
@@ -19,7 +21,7 @@ def novo_flashcard(request):
         dificuldade_filtrar = request.GET.get('dificuldade')
 
         if categoria_filtrar:
-            flashcards = flashcards.filter(categoria__id=categoria_filtrar)            
+            flashcards = flashcards.filter(categoria__id=categoria_filtrar)
             categoria_filtrar = int(categoria_filtrar)
 
         if dificuldade_filtrar:
@@ -67,6 +69,11 @@ def novo_flashcard(request):
 
 
 def deletar_flashcard(request, id):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
+
+
     flashcard = Flashcard.objects.get(id=id)
 
     if not flashcard.user == request.user:
@@ -86,6 +93,10 @@ def deletar_flashcard(request, id):
 
 
 def iniciar_desafio(request):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
+
     if request.method == 'GET':
         categorias = Categoria.objects.all()
         dificuldades = Flashcard.DIFICULDADE_CHOICES
@@ -107,7 +118,9 @@ def iniciar_desafio(request):
             dificuldade=dificuldade,
             status='A'
         )
-        
+
+        desafio.save()
+
 
         desafio.categoria.add(*categorias)
 
@@ -132,11 +145,15 @@ def iniciar_desafio(request):
 
         desafio.save()
 
-        # return redirect(f'/flashcard/desafio/{desafio.id}')
-        return redirect(f'/flashcard/listar_desafio')
+        return redirect(f'/flashcard/desafio/{desafio.id}')
+#        return redirect(f'/flashcard/listar_desafio')
 
 
 def listar_desafio(request):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
+
     desafios = Desafio.objects.filter(user=request.user)
     # TODO: Desenvolver os status feito
     # TODO: Desenvolver os filtros feito
@@ -150,7 +167,7 @@ def listar_desafio(request):
     status_filtrar = request.GET.get('status')
 
     if categoria_filtrar:
-        desafios = desafios.filter(categoria__id=categoria_filtrar)            
+        desafios = desafios.filter(categoria__id=categoria_filtrar)
         categoria_filtrar = int(categoria_filtrar)
 
     if dificuldade_filtrar:
@@ -176,6 +193,10 @@ def listar_desafio(request):
 
 
 def desafio(request, id):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
+
     desafio = Desafio.objects.get(id=id)
 
     if not desafio.user == request.user:
@@ -213,6 +234,10 @@ def desafio(request, id):
 
 
 def responder_flashcard(request, id):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
+
     flashcard_desafio = FlashcardDesafio.objects.get(id=id)
 
     acertou = request.GET.get('acertou')
@@ -228,13 +253,20 @@ def responder_flashcard(request, id):
     return redirect(f'/flashcard/desafio/{desafio_id}/')
 
 
+#def relatorio(request, id):
+#    if not request.user.is_authenticated:
+#        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+#        return redirect(login_url)    
+#    desafio = Desafio.objects.get(id=id)
+#
+#    return render(request, 'relatorio.html', {'desafio': desafio})
+
+
 def relatorio(request, id):
-    desafio = Desafio.objects.get(id=id)
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
 
-    return render(request, 'relatorio.html', {'desafio': desafio})
-
-
-def relatorio(request, id):
     desafio = Desafio.objects.get(id=id)
 
     acertos = desafio.flashcards.filter(acertou=True).count()
@@ -275,7 +307,7 @@ def relatorio(request, id):
     # Ordenar melhores e piores categorias pelo percentual de acertos
     melhores_categorias.sort(key=lambda x: x['acertos'] / (x['acertos'] + x['erros']) * 100, reverse=True)
     piores_categorias.sort(key=lambda x: x['acertos'] / (x['acertos'] + x['erros']) * 100)
-    
+
 
 
     return render(

@@ -110,6 +110,18 @@ Antes de iniciar instale no seu sistema:
     ```bash
     python manage.py migrate
     ```
+    
+    ```bash
+    python manage.py makemigrations flashcard
+    ```
+
+    ```bash
+    python manage.py makemigrations apostilas
+    ```
+
+    ```bash
+    python manage.py migrate
+    ```
 
 7. Crie uma conta de superusuário (admin):
 
@@ -117,12 +129,18 @@ Antes de iniciar instale no seu sistema:
     python manage.py createsuperuser
     ```
 
+8. Coletando arquivos estáticos:
+
+    ```bash
+    python manage.py collectstatic
+    ```
+
 ## Rodando o projeto
 
 Para executar o aplicativo web, execute o comando abaixo:
 
 ```bash
-python3 manage.py runserver
+python manage.py runserver
 ```
 
 Agora você pode acessar o website através do endereço: `localhost:8000/usuarios/login/` para testar e usar o aplicativo.

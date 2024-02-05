@@ -72,16 +72,7 @@
 
 }
 
-.btn-cadastro{
-    padding: 10px;
-    background-color: #58fcd5;
-    border: none;
-    border: 1px solid #58fcd5;
-    font-size: 18px;
-    font-weight: bold;
-    padding-left: 25px;
-    padding-right: 25px;
-}
+
 
 .btn-link-cadastro{
     padding: 10px;
@@ -95,4 +86,29 @@
     padding-right: 25px;
     text-decoration: none;
     color: black;
+}
+
+.btn-cadastro{
+    padding: 10px;
+    background-color: #58fcd5;
+    color:red;     
+    border: none;
+    border: 1px solid #58fcd5;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+}
+
+/* Estilo para o botão ao ser tocado (dispositivos móveis) */
+.btn-cadastro:hover {
+    color: black;
+}
+
+/* Adicione uma regra de cor para o texto em dispositivos móveis (largura de tela até 768 pixels) */
+@media (max-width: 768px) {
+    .btn-cadastro {
+        color: black;
+    }
 }

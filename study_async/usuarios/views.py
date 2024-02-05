@@ -2,7 +2,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.shortcuts import redirect, render
-
+from django.urls import reverse
 
 # Create your views here.
 def cadastro(request):
@@ -69,5 +69,8 @@ def logar(request):
 
 
 def logout(request):
+    if not request.user.is_authenticated:
+        login_url = reverse('login')  # Certifique-se de que 'login' é o nome da sua URL de login
+        return redirect(login_url)
     auth.logout(request)
     return redirect('/usuarios/login')

@@ -45,7 +45,7 @@
                     <br>
                     <h3>Cadastre-se</h3>
                     <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
-                        <label>Username</label>
+                        <label>Usuário</label>
                         <input type="text" class="input-form" name="username" id="">
                         <br>
                         <br>
@@ -57,7 +57,7 @@
                         <input type="password" class="input-form" name="confirmar_senha" id="">
                         <br>
                         <br>
-                        <input type="submit" value="Enviar" class="btn-cadastro">
+                        <input type="submit" value="Enviar" class="btn-cadastro" style="color:black;" >
                         <br>
                         <br>
                         <br>

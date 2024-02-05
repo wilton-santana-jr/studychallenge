@@ -45,7 +45,7 @@
                     {% endfor %}
                     {% endif %}
                     <form action="{% url 'login' %}" method="POST">{% csrf_token %}
-                        <label>Username</label>
+                        <label>Usuário</label>
                         <input type="text" class="input-form" name="username" id="">
                         <br>
                         <br>
@@ -54,7 +54,10 @@
                         <br>
                         <br>
                         <div class="d-flex justify-content-between">
-                            <input type="submit" value="Entrar" class="btn-cadastro">
+                            <input type="submit" value="Entrar" class="btn-cadastro" style="color:black;">
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-between">                                                       
                             <a class="btn-link-cadastro" href="{% url 'cadastro' %}">Faça aqui seu cadastro</a>
                         </div>
                         <br>
