@@ -7,15 +7,22 @@
     <link href="{% static 'flashcard/css/novo_flashcard.css' %}" rel="stylesheet">
     <link href="{% static 'flashcard/css/iniciar_desafio.css' %}" rel="stylesheet">
     <link href="{% static 'flashcard/css/desafio.css' %}" rel="stylesheet">
-    <link href="{% static 'apostilas/css/adicionar_apostilas.css' %}" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">            
+    <link href="{% static 'apostilas/dist/bootstrap-tagsinput.css' %}" rel="stylesheet">
+    
+
 
 {% endblock 'cabecalho' %}
 
 
 {% block 'conteudo' %}
     {% include "partials/header.html" %}
-    <div class="container">
+    <div class="container">        
         <br><br>
         <div class="row">
             <div class="col-md">
@@ -39,7 +46,17 @@
                         <input type="file" name="arquivo" class="form-control">
                         <br>
                         <label>Tags</label>
-                        <input type="text" name="tags" placeholder="Tags" class="form-control">
+                        <br>
+                        <input type="text" name="tags"   data-role="tagsinput"  />
+                         
+                        <br>
+
+                        
+                        
+                        <br>
+
+
+                        
                         <br>
                         <input type="submit" class="btn-cadastro" value="Enviar"  style="color:black;">
                     </form>
@@ -51,8 +68,8 @@
                 <table>
                     <thead>
                       <tr>
-                        <th scope="col">Titulo</th>
-                        <th scope="col">Ação</th>
+                        <th scope="col"><center>Título</center></th>
+                        <th scope="col"><center>Ação</center></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -60,6 +77,10 @@
                             <tr class="linha">
                                 <td>{{apostila.titulo}}</td>
                                 <td><a href="{% url "apostila" apostila.id %}" style="color: black; text-decoration: none;" class="btn-cadastro">Abrir</a></td>
+                            </tr>
+                            <tr >
+                                <td></td>
+                                <td></td>
                             </tr>
                         {% endfor%}
                     </tbody>
@@ -76,8 +97,9 @@
                 <div class="box-form">
                    
                     <form action="{%url 'buscar_apostilas' %}" method="GET" >{% csrf_token %}
-                        <p class="fonte-secundaria">Buscar resumos</p>                       
-                        <input type="text" value="{{ tagsBuscadas }}" name="tags" width="50%" placeholder="Tags" class="form-control">
+                        <p class="fonte-secundaria">Buscar resumos por Tags</p>                                               
+                        <input type="text" name="tags" value="{{ tagsBuscadas }}"   style="margin-right: 332px;"  data-role="tagsinput" />
+                        <br> 
                         <br>                                                
                         <input type="submit" class="btn-cadastro" value="Buscar"  style="color:black;">
                     </form>
@@ -91,4 +113,11 @@
 
 
     </div>
+
+    
+
 {% endblock 'conteudo' %}
+
+
+
+
